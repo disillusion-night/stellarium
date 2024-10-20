@@ -1,0 +1,10 @@
+// 1.21.1	2024-10-20T19:43:20.8894972	Block States: stellarium
+ea598d09c9272a09def59e0dbec1f6b380da5dda assets/stellarium/blockstates/carbonized_planks.json
+099d0ea9f9fe3218007fa792771c512b425ea6b7 assets/stellarium/blockstates/scorched_sand.json
+c13c5b1d860ca119ebf53585b7d3c06e73d76731 assets/stellarium/blockstates/scorched_soil.json
+d5d341d46548d33c943da687cba70dced59c1d9b assets/stellarium/models/block/carbonized_planks.json
+72ab06967808a45f96624083416d9464693e9cb5 assets/stellarium/models/block/scorched_sand.json
+2a1049a2fa4a41ad012c1a9e127544d16e1de3d3 assets/stellarium/models/block/scorched_soil.json
+c4634a2707346b7dd7e1573de6937eff31222127 assets/stellarium/models/item/carbonized_planks.json
+80700690a1914b359047fec06943c1e14a7625ad assets/stellarium/models/item/scorched_sand.json
+4b55718375d0f9cc5f8da355605bce9e4915aabd assets/stellarium/models/item/scorched_soil.json

@@ -29,5 +29,6 @@ public class ModDataGenerator {
         generator.addProvider(event.includeServer(),new ModDatapackBuiltinEntriesProvider(output,lookupProvider));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output, Language.EN_US));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output, Language.ZH_CN));
+        generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, existingFileHelper));
     }
 }

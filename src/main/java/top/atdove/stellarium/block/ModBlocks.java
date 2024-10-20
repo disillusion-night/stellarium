@@ -22,6 +22,7 @@ import static top.atdove.stellarium.Stellarium.MODID;
 public class ModBlocks {
 
     public static final ArrayList<CustomBlock> customBlocks = new ArrayList<>();
+    public static final ArrayList<CustomBlock> simpleCubeBlocks = new ArrayList<>();
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     public static final CustomBlock CARBONIZED_LOG = createCustomBlock(
             "carbonized_log",
@@ -44,7 +45,7 @@ public class ModBlocks {
             "carbonized_stairs",
             "碳化木楼梯",
             () -> getStair(CARBONIZED_WOOD.getDeferredBlock().get()));
-    public static final CustomBlock CARBONIZED_PLANKS = createCustomBlock(
+    public static final CustomBlock CARBONIZED_PLANKS = createSimpleCubeBlock(
             "carbonized_planks",
             "碳化木板",
             () -> new Block(
@@ -111,7 +112,7 @@ public class ModBlocks {
             "碳化木按钮",
             () -> woodenButton(ModBlockSetType.CARBONIZED_WOOD)
     );
-    public static final CustomBlock SCORCHED_SAND = createCustomBlock(
+    public static final CustomBlock SCORCHED_SAND = createSimpleCubeBlock(
             "scorched_sand",
             "灼化沙",
             () -> new ColoredFallingBlock(
@@ -126,7 +127,7 @@ public class ModBlocks {
                     .explosionResistance(10.0f)
                     .sound(SoundType.STONE)
             ));
-    public static final CustomBlock SCORCHED_SOIL = createCustomBlock(
+    public static final CustomBlock SCORCHED_SOIL = createSimpleCubeBlock(
             "scorched_soil",
             "灼化泥土",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -146,6 +147,12 @@ public class ModBlocks {
         CustomBlock customBlock = new CustomBlock(id, new LanguageManager().addSimplfiedChinese(ChineseName), _deferredBlock, ModItems.createBlockItem(id, _deferredBlock));
         customBlock.generateEnglishTextFromId();
         customBlocks.add(customBlock);
+        return customBlock;
+    }
+
+    public static CustomBlock createSimpleCubeBlock(String id, String ChineseName, Supplier<? extends Block> supplier) {
+        CustomBlock customBlock = createCustomBlock(id, ChineseName, supplier);
+        simpleCubeBlocks.add(customBlock);
         return customBlock;
     }
 

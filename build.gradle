@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.42-beta'
+    id 'net.neoforged.moddev' version '2.0.36-beta'
 }
 
 version = mod_version
@@ -9,6 +9,20 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        url "https://cursemaven.com"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
 
 base {
@@ -115,6 +129,15 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+    /* other minecraft dependencies are here */
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    runtimeOnly("curse.maven:project-${appleskin_projectId}:${appleskin_fileId}")
+    runtimeOnly("curse.maven:project-${cold_sweat_projectId}:${cold_sweat_fileId}")
+
+    //implementation("curse.maven:project-${terra_blender_projectId}:${terra_blender_fileId}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -163,4 +186,7 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+}
+tasks.withType(Copy) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

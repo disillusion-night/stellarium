@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "stellarium:block/carbonized_pressure_plate"
+    },
+    "powered=true": {
+      "model": "stellarium:block/carbonized_pressure_plate_down"
+    }
+  }
+}

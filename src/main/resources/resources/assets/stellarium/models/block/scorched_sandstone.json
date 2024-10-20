@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "stellarium:block/scorched_sandstone_bottom",
+    "side": "stellarium:block/scorched_sandstone_normal",
+    "top": "stellarium:block/scorched_sandstone_top"
+  }
+}

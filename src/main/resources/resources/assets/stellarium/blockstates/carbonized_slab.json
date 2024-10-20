@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "stellarium:block/carbonized_slab"
+    },
+    "type=double": {
+      "model": "stellarium:block/carbonized_planks"
+    },
+    "type=top": {
+      "model": "stellarium:block/carbonized_slab_top"
+    }
+  }
+}

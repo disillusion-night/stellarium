@@ -1,5 +1,19 @@
 {
-  "itemGroup.stellarium": "Example Mod Tab",
-  "block.stellarium.example_block": "Example Block",
-  "item.stellarium.example_item": "Example Item"
+  "block.stellarium.carbonized_button": "carbonized button",
+  "block.stellarium.carbonized_fence": "carbonized fence",
+  "block.stellarium.carbonized_fence_gate": "carbonized fence gate",
+  "block.stellarium.carbonized_trapdoor": "carbonized trapdoor",
+  "block.stellarium.carbonized_door": "carbonized door",
+  "block.stellarium.carbonized_pressure_plate": "carbonized pressure plate",
+  "block.stellarium.carbonized_log": "carbonized log",
+  "block.stellarium.carbonized_wood": "carbonized wood",
+  "block.stellarium.carbonized_planks": "carbonized planks",
+  "block.stellarium.carbonized_stairs": "carbonized stairs",
+  "block.stellarium.carbonized_slab": "carbonized slab",
+  "block.stellarium.scorched_sand": "scorched sand",
+  "block.stellarium.scorched_sandstone": "scorched sandstone",
+  "block.stellarium.scorched_soil": "scorched soil",
+  "effect.stellarium.frozen": "frozen",
+  "effect.stellarium.soulburnt": "soulburnt",
+  "itemGroup.stellarium.modblocks": "Mod Blocks"
 }

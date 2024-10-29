@@ -52,11 +52,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     //this.simpleBlockItem(customBlock.get(), itemModels().);
                 }
 
-                case SLAB -> this.slabBlock(
-                        (SlabBlock) customBlock.get(),
-                        ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId()+"_double"),
-                        ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId())
-                );
+                case SLAB -> {/*
+                    this.simpleBlockWithItem(
+                            customBlock.get(),
+                            models().cubeColumn(customBlock.getId()+"_double",
+                                    ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId()+"_double"),
+                                    ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId())
+                            )
+                    );*/
+                    this.slabBlock(
+                            (SlabBlock) customBlock.get(),
+                            ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId()),
+                            ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId()),
+                            ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId()),
+                            ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER+"/"+customBlock.getId())
+                    );
+                }
 
                 case PRESSURE_PLATE -> {
                     this.pressurePlateBlock((PressurePlateBlock) customBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, ModelProvider.BLOCK_FOLDER + "/" + customBlock.getId()));

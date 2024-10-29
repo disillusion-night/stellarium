@@ -3,6 +3,7 @@ package top.atdove.stellarium.block;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import top.atdove.stellarium.dataGen.BasicBlockState;
 import top.atdove.stellarium.i18n.Language;
 import top.atdove.stellarium.i18n.LanguageManager;
 
@@ -14,11 +15,12 @@ public class CustomBlock {
 
     DeferredBlock<? extends Block> deferredBlock;
     Supplier<BlockItem> blockItemSupplier;
-
-    public CustomBlock (String id, LanguageManager languageManager, DeferredBlock<? extends Block> deferredBlock, Supplier<BlockItem> blockItem){
+    BasicBlockState basicBlockState;
+    public CustomBlock (String id, LanguageManager languageManager, BasicBlockState basicBlockState, DeferredBlock<? extends Block> deferredBlock, Supplier<BlockItem> blockItem){
         this.id = id;
         this.languageManager = languageManager;
         this.deferredBlock = deferredBlock;
+        this.basicBlockState = basicBlockState;
         this.blockItemSupplier = blockItem;
     }
 
@@ -56,6 +58,11 @@ public class CustomBlock {
         }
         getLanguageManager().addEnglish(text);
     }
+
+    public BasicBlockState getBasicBlockState() {
+        return basicBlockState;
+    }
+
     public String getTranslation(Language language){
         return this.languageManager.getTranslation(language);
     }

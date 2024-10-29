@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "stellarium:block/carbonized_wood_end",
+    "side": "stellarium:block/carbonized_wood_side"
+  }
+}

@@ -1,0 +1,7 @@
+package top.atdove.stellarium.dataGen;
+
+public enum BasicBlockState {
+    CUBE_ALL,CUBE_TOP,CUBE_BOTTOM_TOP,CUBE_COLUMN,BUTTON,FENCE,FENCE_GATE,SLAB,STAIRS,PRESSURE_PLATE,TRAP_DOOR,DOOR,CUSTOM
+
+
+}

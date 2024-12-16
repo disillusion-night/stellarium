@@ -28,7 +28,7 @@ public class effectsHandler {
 
         if (!entity.level().isClientSide()) {
             if(effect.value() instanceof CustomEffect){
-                ((CustomEffect)effect.value()).onEffectRemoved(entity, amplifier);
+                ((CustomEffect)effect.value()).onEffectEnd(entity, amplifier);
             }
         }
     }

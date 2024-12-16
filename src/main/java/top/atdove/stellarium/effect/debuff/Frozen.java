@@ -38,7 +38,7 @@ public class Frozen extends CustomEffect {
     }
 
     @Override
-    public void onEffectRemoved(LivingEntity entity, int amp){
+    public void onEffectEnd(LivingEntity entity, int amp){
         entity.setData(Stellarium.CAN_SPRINT, true);
         Objects.requireNonNull(entity.getAttribute(Attributes.MAX_HEALTH)).removeModifier(getResourceLocation());
         Objects.requireNonNull(entity.getAttribute(Attributes.MOVEMENT_SPEED)).removeModifier(getResourceLocation());

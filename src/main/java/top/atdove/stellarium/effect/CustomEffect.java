@@ -41,6 +41,6 @@ public abstract class CustomEffect extends MobEffect {
         }
         return arrayList.get(index);
     }
-    public abstract void onEffectRemoved(LivingEntity entity, int amplifier);
+    public abstract void onEffectEnd(LivingEntity entity, int amplifier);
 
 }

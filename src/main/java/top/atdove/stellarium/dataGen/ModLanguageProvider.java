@@ -5,8 +5,6 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import top.atdove.stellarium.i18n.Language;
 
-import java.util.Objects;
-
 import static top.atdove.stellarium.Stellarium.MODID;
 
 public class ModLanguageProvider extends LanguageProvider {

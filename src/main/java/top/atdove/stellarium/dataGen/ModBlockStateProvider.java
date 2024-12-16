@@ -1,11 +1,9 @@
 package top.atdove.stellarium.dataGen;
 
 
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
@@ -77,5 +75,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
             }
         });
+
     }
 }

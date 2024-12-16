@@ -26,7 +26,8 @@ public class ModDataGenerator {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         
         // 为数据生成器添加一个自定义的数据包内置条目提供者
-        generator.addProvider(event.includeServer(),new ModDatapackBuiltinEntriesProvider(output,lookupProvider));
+        generator.addProvider(event.includeServer(), new ModDatapackBuiltinEntriesProvider(output,lookupProvider));
+        generator.addProvider(event.includeServer(), new ModBlockTagsProvider(output, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output, Language.EN_US));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output, Language.ZH_CN));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, existingFileHelper));

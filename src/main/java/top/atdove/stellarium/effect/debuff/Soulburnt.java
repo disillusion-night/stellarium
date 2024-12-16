@@ -28,18 +28,14 @@ public class Soulburnt extends CustomEffect {
     }
 
     @Override
-    public void onEffectRemoved(LivingEntity entity, int amp){
+    public void onEffectEnd(LivingEntity entity, int amp){
         Objects.requireNonNull(entity.getAttribute(Attributes.MAX_HEALTH)).removeModifier(getResourceLocation());
     }
     private static AttributeModifier generateModifier(LivingEntity entity, int amplifier){
         AttributeModifier modifier = Objects.requireNonNull(entity.getAttribute(Attributes.MAX_HEALTH)).getModifier(getResourceLocation());
         double amount;
         if(modifier != null){
-            amount = modifier.amount();
-            amount = amount - 0.05;
-            if(amount < getDoubleAmount(maxHealthReducePL, amplifier)){
-                amount = getDoubleAmount(maxHealthReducePL, amplifier);
-            }
+            amount = Math.max(modifier.amount() - 0.05, getDoubleAmount(maxHealthReducePL, amplifier));
         }else {
             amount = -0.05;
         }

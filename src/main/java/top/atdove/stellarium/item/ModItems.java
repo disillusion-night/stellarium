@@ -3,6 +3,7 @@ package top.atdove.stellarium.item;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -21,6 +22,7 @@ public class ModItems {
     public static final ArrayList<Supplier<BlockItem>> blockItems = new ArrayList<>();
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    public static final DeferredItem<Item> TEST_CHUIZI = ITEMS.registerSimpleItem("chuizi", new Item.Properties().durability(114514));
 
     public static Supplier<BlockItem> createBlockItem(String name, Supplier<? extends Block> supplier, Item.Properties properties){
         return ITEMS.registerSimpleBlockItem(name, supplier, properties);

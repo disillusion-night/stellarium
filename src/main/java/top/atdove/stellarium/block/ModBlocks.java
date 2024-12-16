@@ -1,6 +1,7 @@
 package top.atdove.stellarium.block;
 
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -107,7 +108,7 @@ public class ModBlocks {
                             .strength(2.0F, 3.0F)
                             .sound(SoundType.WOOD)
                             .ignitedByLava()
-            ));
+            )).addBlockTag(BlockTags.WOODEN_SLABS);
     public static final CustomBlock CARBONIZED_BUTTON = createButtonBlock(
             "carbonized_button",
             "碳化木按钮",
@@ -162,23 +163,23 @@ public class ModBlocks {
     }
 
     public static CustomBlock createStairsBlock(String id, String ChineseName, Supplier<? extends Block> supplier) {
-        return createCustomBlock(id, ChineseName, STAIRS, supplier);
+        return createCustomBlock(id, ChineseName, STAIRS, supplier).addBlockTag(BlockTags.STAIRS);
     }
     public static CustomBlock createSlabBlock(String id, String ChineseName, Supplier<? extends Block> supplier) {
-        return createCustomBlock(id, ChineseName, SLAB, supplier);
+        return createCustomBlock(id, ChineseName, SLAB, supplier).addBlockTag(BlockTags.SLABS);
     }
     public static CustomBlock createButtonBlock(String id, String ChineseName, Supplier<? extends Block> supplier) {
-        return createCustomBlock(id, ChineseName, BUTTON, supplier);
+        return createCustomBlock(id, ChineseName, BUTTON, supplier).addBlockTag(BlockTags.BUTTONS);
     }
 
     public static CustomBlock createFenceBlock(String id, String ChineseName, Supplier<? extends Block> supplier) {
-        return createCustomBlock(id, ChineseName, FENCE, supplier);
+        return createCustomBlock(id, ChineseName, FENCE, supplier).addBlockTag(BlockTags.FENCES);
     }
     public static CustomBlock createFenceGateBlock(String id, String ChineseName, Supplier<? extends Block> supplier) {
-        return createCustomBlock(id, ChineseName, FENCE_GATE, supplier);
+        return createCustomBlock(id, ChineseName, FENCE_GATE, supplier).addBlockTag(BlockTags.FENCE_GATES);
     }
     public static CustomBlock createPressurePlateBlock(String id, String ChineseName, Supplier<? extends Block> supplier) {
-        return createCustomBlock(id, ChineseName, PRESSURE_PLATE, supplier);
+        return createCustomBlock(id, ChineseName, PRESSURE_PLATE, supplier).addBlockTag(BlockTags.PRESSURE_PLATES);
     }
 
     private static Block getStair(Block baseBlock) {

@@ -1,0 +1,8 @@
+// 1.21.1	2024-12-16T10:47:56.5952378	Tags for minecraft:block mod id stellarium
+87332e868946a5fdd235b274b46f2a504888c836 data/minecraft/tags/block/buttons.json
+c28d9b680777860e0ba0f85d801266e76f2259ef data/minecraft/tags/block/fences.json
+4ff87e2d38ed524fd193c9b03dcfa63b578f17a5 data/minecraft/tags/block/fence_gates.json
+65cd95d769c34a12f9e8ac13b00311ba8b3c933f data/minecraft/tags/block/pressure_plates.json
+1d7e3d04f39f31bc4e058878f591724de799b71a data/minecraft/tags/block/slabs.json
+1169376b318269423618debce8a312ca04cd6b04 data/minecraft/tags/block/stairs.json
+1d7e3d04f39f31bc4e058878f591724de799b71a data/minecraft/tags/block/wooden_slabs.json

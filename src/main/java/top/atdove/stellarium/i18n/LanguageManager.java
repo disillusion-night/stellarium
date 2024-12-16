@@ -24,6 +24,18 @@ public class LanguageManager {
         return this;
     }
 
+    public LanguageManager generateEngTranslationFromId(String id){
+        String name = id.replace("_", " ");
+        String[] words = name.split(" ");
+        String text = "";
+        for(String word : words) {
+            if (!word.isEmpty()) {
+                text = Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase() + " ";
+            }
+        }
+        this.addEnglish(name);
+        return this;
+    }
     public String getTranslation(Language language) {
         return translations.get(language);
     }

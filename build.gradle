@@ -42,7 +42,6 @@ neoForge {
         mappingsVersion = project.parchment_mappings_version
         minecraftVersion = project.parchment_minecraft_version
     }
-
     // This line is optional. Access Transformers are automatically detected
     //accessTransformers.add('src/main/resources/META-INF/accesstransformer.cfg')
 

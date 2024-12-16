@@ -3,17 +3,15 @@ package top.atdove.stellarium.effect.debuff;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.*;
-import top.atdove.stellarium.effect.CustomEffect;
+import top.atdove.stellarium.Stellarium;
+import top.atdove.stellarium.effect.ExtendedEffect;
 
 import java.util.*;
 
-public class Soulburnt extends CustomEffect {
-    public Soulburnt(MobEffectCategory category, int color) {
-        super(category, color, effectName);
+public class Soulburnt extends ExtendedEffect {
+    public Soulburnt(String effectName, MobEffectCategory category, int color) {
+        super(effectName, category, color);
     }
-
-    public static final String effectName = "soulburnt";
-
     private static final ArrayList<Double> maxHealthReducePL = new ArrayList<>(Arrays.asList(-0.1, -0.25, -0.5, -0.8));
     private static final ArrayList<Integer> ticksByLevel = new ArrayList<>(Arrays.asList(80, 50, 20, 10));
 
@@ -24,22 +22,22 @@ public class Soulburnt extends CustomEffect {
     }
     @Override
     public boolean shouldApplyEffectTickThisTick(int tickCount, int amplifier) {
-        return tickCount % getIntAmount(ticksByLevel, amplifier) == 0;
+        return tickCount % getAmountInt(ticksByLevel, amplifier) == 0;
     }
 
     @Override
-    public void onEffectEnd(LivingEntity entity, int amp){
-        Objects.requireNonNull(entity.getAttribute(Attributes.MAX_HEALTH)).removeModifier(getResourceLocation());
+    public void onEffectRemoved(LivingEntity entity, int amp){
+        Objects.requireNonNull(entity.getAttribute(Attributes.MAX_HEALTH)).removeModifier(getRL());
     }
-    private static AttributeModifier generateModifier(LivingEntity entity, int amplifier){
-        AttributeModifier modifier = Objects.requireNonNull(entity.getAttribute(Attributes.MAX_HEALTH)).getModifier(getResourceLocation());
+    private AttributeModifier generateModifier(LivingEntity entity, int amplifier){
+        AttributeModifier modifier = Objects.requireNonNull(entity.getAttribute(Attributes.MAX_HEALTH)).getModifier(getRL());
         double amount;
         if(modifier != null){
-            amount = Math.max(modifier.amount() - 0.05, getDoubleAmount(maxHealthReducePL, amplifier));
+            amount = Math.max(modifier.amount() - 0.05, getAmountDouble(maxHealthReducePL, amplifier));
         }else {
             amount = -0.05;
         }
-        return new AttributeModifier(getResourceLocation(), amount, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+        return new AttributeModifier(getRL(), amount, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
     }
 
 }

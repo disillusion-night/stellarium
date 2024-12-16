@@ -5,28 +5,29 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import org.jetbrains.annotations.NotNull;
 import top.atdove.stellarium.dataGen.BasicBlockState;
 import top.atdove.stellarium.i18n.Language;
 import top.atdove.stellarium.i18n.LanguageManager;
+import top.atdove.stellarium.item.ModItems;
 
 import java.security.PublicKey;
-import java.util.List;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class CustomBlock {
     String id;
     LanguageManager languageManager;
-
     DeferredBlock<? extends Block> deferredBlock;
     Supplier<BlockItem> blockItemSupplier;
     BasicBlockState basicBlockState;
-    List<TagKey<Block>> blockTagKeys;
-    public CustomBlock (String id, LanguageManager languageManager, BasicBlockState basicBlockState, DeferredBlock<? extends Block> deferredBlock, Supplier<BlockItem> blockItem){
+    ArrayList<TagKey<Block>> blockTagKeys;
+
+    public CustomBlock (String id, BasicBlockState basicBlockState, DeferredBlock<? extends Block> deferredBlock){
         this.id = id;
-        this.languageManager = languageManager;
         this.deferredBlock = deferredBlock;
         this.basicBlockState = basicBlockState;
-        this.blockItemSupplier = blockItem;
+        this.blockItemSupplier = ModItems.createBlockItem(id, deferredBlock);
     }
 
     public DeferredBlock<? extends Block> getDeferredBlock() {
@@ -47,32 +48,42 @@ public class CustomBlock {
     public BlockItem getBlockItem(){
         return blockItemSupplier.get();
     }
-    public LanguageManager getLanguageManager(){
-        return languageManager;
-    }
-    protected void generateEnglishTextFromId(){
-        String name = this.id.replace("_", " ");
-        String[] words = name.split(" ");
-        String text = "";
-        for(String word : words){
-            if(!word.isEmpty()){
-                text = Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase() + " ";
-            }
-        }
-        getLanguageManager().addEnglish(text);
-    }
 
     public BasicBlockState getBasicBlockState() {
         return basicBlockState;
     }
     public CustomBlock addBlockTag(TagKey<Block> blockTagKey){
+        if(this.blockTagKeys == null){
+            this.blockTagKeys = new ArrayList<TagKey<Block>>();
+        }
         this.blockTagKeys.add(blockTagKey);
         return this;
     }
-    public List<TagKey<Block>> getBlockTagKeys(){
+    public ArrayList<TagKey<Block>> getBlockTagKeys(){
+        if(this.blockTagKeys == null){
+            return new ArrayList<TagKey<Block>>();
+        }
         return this.blockTagKeys;
     }
-    public String getTranslation(Language language){
-        return this.languageManager.getTranslation(language);
+    public LanguageManager getLanguageManager(){
+        if(this.languageManager == null){
+            this.languageManager = new LanguageManager();
+        }
+        return this.languageManager;
+    }
+    public CustomBlock addSimplfiedChinese(String chineseName){
+        this.getLanguageManager().addSimplfiedChinese(chineseName);
+        return this;
+    }
+    public CustomBlock generateEngTranslationFromId(){
+        String name = this.id.replace("_", " ");
+        String[] words = name.split(" ");
+        String text = "";
+        for (String word : words) {
+            text += Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase() + " ";
+        }
+
+        this.getLanguageManager().addEnglish(text.substring(0, text.length() - 1));
+        return this;
     }
 }

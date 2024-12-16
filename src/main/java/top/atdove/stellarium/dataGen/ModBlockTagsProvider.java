@@ -21,9 +21,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         ModBlocks.customBlocks.forEach(customBlock -> {
-            customBlock.getBlockTagKeys().forEach(blockTagKey -> {
-                this.tag(blockTagKey).add(customBlock.get());
-            });
+            if(!customBlock.getBlockTagKeys().isEmpty()){
+                customBlock.getBlockTagKeys().forEach(blockTagKey -> {
+                    this.tag(blockTagKey).add(customBlock.get());
+                });
+            }
         });
     }
 }

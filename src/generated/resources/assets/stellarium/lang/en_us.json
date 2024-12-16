@@ -1,14 +1,15 @@
 {
-  "block.stellarium.carbonized_button": "Carbonized Button ",
-  "block.stellarium.carbonized_fence": "Carbonized Fence ",
-  "block.stellarium.carbonized_fence_gate": "Carbonized Fence Gate ",
-  "block.stellarium.carbonized_log": "Carbonized Log ",
-  "block.stellarium.carbonized_planks": "Carbonized Planks ",
-  "block.stellarium.carbonized_pressure_plate": "Carbonized Pressure Plate ",
-  "block.stellarium.carbonized_slab": "Carbonized Slab ",
-  "block.stellarium.carbonized_stairs": "Carbonized Stairs ",
-  "block.stellarium.carbonized_wood": "Carbonized Wood ",
-  "block.stellarium.scorched_sand": "Scorched Sand ",
-  "block.stellarium.scorched_sandstone": "Scorched Sandstone ",
-  "block.stellarium.scorched_soil": "Scorched Soil "
+  "block.stellarium.carbonized_button": "Carbonized Button",
+  "block.stellarium.carbonized_fence": "Carbonized Fence",
+  "block.stellarium.carbonized_fence_gate": "Carbonized Fence Gate",
+  "block.stellarium.carbonized_log": "Carbonized Log",
+  "block.stellarium.carbonized_planks": "Carbonized Planks",
+  "block.stellarium.carbonized_slab": "Carbonized Slab",
+  "block.stellarium.carbonized_stairs": "Carbonized Stairs",
+  "block.stellarium.carbonized_wood": "Carbonized Wood",
+  "block.stellarium.scorched_sand": "Scorched Sand",
+  "block.stellarium.scorched_sandstone": "Scorched Sandstone",
+  "block.stellarium.scorched_soil": "Scorched Soil",
+  "effect.stellarium.frozen": "Frozen",
+  "effect.stellarium.soul_burnt": "Soul Burnt"
 }

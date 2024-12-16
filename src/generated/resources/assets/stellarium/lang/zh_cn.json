@@ -2,13 +2,16 @@
   "block.stellarium.carbonized_button": "碳化木按钮",
   "block.stellarium.carbonized_fence": "碳化木栅栏",
   "block.stellarium.carbonized_fence_gate": "碳化木栅栏门",
-  "block.stellarium.carbonized_log": "碳化木",
+  "block.stellarium.carbonized_log": "碳化原木",
   "block.stellarium.carbonized_planks": "碳化木板",
   "block.stellarium.carbonized_pressure_plate": "碳化木压力板",
   "block.stellarium.carbonized_slab": "碳化木台阶",
   "block.stellarium.carbonized_stairs": "碳化木楼梯",
-  "block.stellarium.carbonized_wood": "碳化木原木",
+  "block.stellarium.carbonized_wood": "碳化木",
   "block.stellarium.scorched_sand": "灼化沙",
   "block.stellarium.scorched_sandstone": "灼化砂岩",
-  "block.stellarium.scorched_soil": "灼化泥土"
+  "block.stellarium.scorched_soil": "灼化砂土",
+  "effect.stellarium.frozen": "冻伤",
+  "effect.stellarium.soul_burnt": "焚魂熔炎",
+  "item.stellarium.flamegold_ingot": "炽焰金锭"
 }

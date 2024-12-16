@@ -26,11 +26,14 @@ public class RightClickHandler {
         Player player = event.getEntity();
         if(!player.level().isClientSide){
             ItemStack itemStack = event.getItemStack();
+
             if(itemStack.getItem() instanceof TippedArrowItem && player.getHealth() > 2){
                 RightClickHandler.useTippedArrow(player, itemStack);
             }
         }
     }
+
+
 
     public static void useTippedArrow(Player player, ItemStack itemStack){
         player.getCooldowns().addCooldown(itemStack.getItem(), 200);

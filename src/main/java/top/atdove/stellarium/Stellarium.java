@@ -3,6 +3,7 @@ package top.atdove.stellarium;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -65,6 +66,14 @@ public class Stellarium {
     public static void log(double num){
         LOGGER.info(String.valueOf(num));
     }
+
+    public static ResourceLocation getRL(String path){
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
+    /*public static String getRLString(String path){
+        return ResourceLocation.fromNamespaceAndPath(MODID, path).toString();
+    }*/
+
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Stellarium(IEventBus modEventBus, ModContainer modContainer) {
@@ -80,9 +89,9 @@ public class Stellarium {
         ATTACHMENT_TYPES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
-        ModEffects.register(modEventBus);
+        ModEffects.initialize(modEventBus);
         //ModEnchantments.register(modEventBus);
-        //effectsHandler()
+        //EffectsEventHandler()
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (Stellarium) to respond directly to events.

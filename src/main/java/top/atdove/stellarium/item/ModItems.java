@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.checkerframework.checker.units.qual.A;
 import top.atdove.stellarium.Stellarium;
 import top.atdove.stellarium.block.ModBlocks;
 
@@ -17,12 +18,29 @@ import java.util.function.Supplier;
 import static top.atdove.stellarium.Stellarium.MODID;
 
 public class ModItems {
-    public static int items = 0;
-
-    public static final ArrayList<Supplier<BlockItem>> blockItems = new ArrayList<>();
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
-    public static final DeferredItem<Item> TEST_CHUIZI = ITEMS.registerSimpleItem("chuizi", new Item.Properties().durability(114514));
+
+    public static final ArrayList<ExtendedItem> modItems = new ArrayList<>();
+    //public static final ExtendedItem EXAMPLE_ITEM = registerExtendedItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    public static final ExtendedItem TEST_CHUIZI = registerExtendedItem("chuizi", new Item.Properties().durability(114514));
+    public static final ExtendedItem FLAMEGOLD_INGOT = registerExtendedItem("flamegold_ingot");
+
+    public static ExtendedItem registerExtendedItem(String itemName, Item.Properties properties, String tabId){
+        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName, properties)).setTab(tabId);
+        modItems.add(extendedItem);
+        return extendedItem;
+    }
+    public static ExtendedItem registerExtendedItem(String itemName, Item.Properties properties){
+        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName, properties)).setTab("moditems");
+        modItems.add(extendedItem);
+        return extendedItem;
+    }
+
+    public static ExtendedItem registerExtendedItem(String itemName){
+        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName)).setTab("moditems");
+        modItems.add(extendedItem);
+        return extendedItem;
+    }
 
     public static Supplier<BlockItem> createBlockItem(String name, Supplier<? extends Block> supplier, Item.Properties properties){
         return ITEMS.registerSimpleBlockItem(name, supplier, properties);

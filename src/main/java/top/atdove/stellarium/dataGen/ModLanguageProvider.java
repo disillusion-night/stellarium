@@ -1,9 +1,9 @@
 package top.atdove.stellarium.dataGen;
 
-import top.atdove.stellarium.block.ExtendedBlock;
-import top.atdove.stellarium.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import top.atdove.stellarium.block.ExtendedBlock;
+import top.atdove.stellarium.block.ModBlocks;
 import top.atdove.stellarium.effect.ExtendedEffect;
 import top.atdove.stellarium.effect.ModEffects;
 import top.atdove.stellarium.i18n.Language;
@@ -11,7 +11,6 @@ import top.atdove.stellarium.item.ExtendedItem;
 import top.atdove.stellarium.item.ModItems;
 
 import static top.atdove.stellarium.Stellarium.MODID;
-import static top.atdove.stellarium.Stellarium.log;
 
 public class ModLanguageProvider extends LanguageProvider {
     Language locale;
@@ -82,9 +81,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
     public String generateEngTranslationFromId(String id){
         String[] words = id.split("_");
-        String text = "";
+        StringBuilder text = new StringBuilder();
         for (String word : words) {
-            text += Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase() + " ";
+            text.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1).toLowerCase()).append(" ");
         }
         return text.substring(0, text.length() - 1);
     }

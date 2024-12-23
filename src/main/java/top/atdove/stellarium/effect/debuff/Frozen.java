@@ -2,12 +2,15 @@ package top.atdove.stellarium.effect.debuff;
 
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.*;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import org.jetbrains.annotations.NotNull;
 import top.atdove.stellarium.Stellarium;
 import top.atdove.stellarium.effect.ExtendedEffect;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Frozen extends ExtendedEffect {
     public Frozen(MobEffectCategory category, int color) {

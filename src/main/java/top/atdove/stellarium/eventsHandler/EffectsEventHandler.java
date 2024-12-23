@@ -3,15 +3,12 @@ package top.atdove.stellarium.eventsHandler;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
-import org.jetbrains.annotations.Nullable;
 import top.atdove.stellarium.effect.ExtendedEffect;
-//import top.atdove.stellarium.effect.CustomBuff;
 
 import java.util.Objects;
 

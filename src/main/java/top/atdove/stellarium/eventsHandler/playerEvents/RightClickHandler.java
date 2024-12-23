@@ -16,7 +16,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static top.atdove.stellarium.Stellarium.MODID;
-import static top.atdove.stellarium.Stellarium.log;
 
 @Mod(MODID)
 public class RightClickHandler {

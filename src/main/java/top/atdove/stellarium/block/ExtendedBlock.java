@@ -7,7 +7,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import top.atdove.stellarium.dataGen.BasicBlockState;
 import top.atdove.stellarium.item.ModItems;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class ExtendedBlock {

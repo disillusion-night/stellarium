@@ -1,16 +1,10 @@
 package top.atdove.stellarium.item;
 
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.checkerframework.checker.units.qual.A;
-import top.atdove.stellarium.Stellarium;
-import top.atdove.stellarium.block.ModBlocks;
 
 import java.util.ArrayList;
 import java.util.function.Supplier;

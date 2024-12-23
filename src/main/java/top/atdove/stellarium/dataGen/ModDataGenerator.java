@@ -7,7 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-import top.atdove.stellarium.i18n.Language;
+import top.atdove.stellarium.i18n.LanguageEnum;
 import top.atdove.stellarium.provider.ModDatapackBuiltinEntriesProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -27,9 +27,11 @@ public class ModDataGenerator {
         
         // 为数据生成器添加一个自定义的数据包内置条目提供者
         generator.addProvider(event.includeServer(), new ModDatapackBuiltinEntriesProvider(output,lookupProvider));
+
         generator.addProvider(event.includeServer(), new ModBlockTagsProvider(output, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModLanguageProvider(output, Language.EN_US));
-        generator.addProvider(event.includeClient(), new ModLanguageProvider(output, Language.ZH_CN));
+        generator.addProvider(event.includeClient(), new ModLanguageProvider(output, LanguageEnum.EN_US));
+        generator.addProvider(event.includeClient(), new ModLanguageProvider(output, LanguageEnum.ZH_CN));
+        generator.addProvider(event.includeClient(), new ItemModelGenerator(output, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, existingFileHelper));
     }
 }

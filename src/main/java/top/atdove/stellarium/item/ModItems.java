@@ -16,22 +16,23 @@ public class ModItems {
 
     public static final ArrayList<ExtendedItem> modItems = new ArrayList<>();
     //public static final ExtendedItem EXAMPLE_ITEM = registerExtendedItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
-    public static final ExtendedItem TEST_CHUIZI = registerExtendedItem("chuizi", new Item.Properties().durability(114514));
+    //public static final ExtendedItem TEST_CHUIZI = registerExtendedItem("chuizi", new Item.Properties().durability(114514));
     public static final ExtendedItem FLAMEGOLD_INGOT = registerExtendedItem("flamegold_ingot");
+    public static final ExtendedItem FIERY_CRYSTAL = registerExtendedItem("fiery_crystal");
 
-    public static ExtendedItem registerExtendedItem(String itemName, Item.Properties properties, String tabId){
-        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName, properties)).setTab(tabId);
+    public static ExtendedItem registerExtendedItem(String itemName, Item.Properties properties, ItemTabEnum itemTabEnum){
+        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName, properties)).setItemTab(itemTabEnum);
         modItems.add(extendedItem);
         return extendedItem;
     }
     public static ExtendedItem registerExtendedItem(String itemName, Item.Properties properties){
-        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName, properties)).setTab("moditems");
+        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName, properties)).setItemTab(ItemTabEnum.BASIC_ITEMS);
         modItems.add(extendedItem);
         return extendedItem;
     }
 
     public static ExtendedItem registerExtendedItem(String itemName){
-        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName)).setTab("moditems");
+        ExtendedItem extendedItem = new ExtendedItem(ITEMS.registerSimpleItem(itemName)).setItemTab(ItemTabEnum.BASIC_ITEMS);
         modItems.add(extendedItem);
         return extendedItem;
     }

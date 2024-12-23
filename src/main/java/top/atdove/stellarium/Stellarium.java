@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import top.atdove.stellarium.effect.ModEffects;
 import top.atdove.stellarium.eventsHandler.playerEvents.RightClickHandler;
 
+import java.util.Locale;
 import java.util.function.Supplier;
 
 import static net.neoforged.neoforge.internal.versions.neoforge.NeoForgeVersion.MOD_ID;
@@ -70,6 +71,10 @@ public class Stellarium {
 
     public static ResourceLocation getRL(String path){
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
+
+    public static ResourceLocation prefix(String name) {
+        return getRL(name.toLowerCase(Locale.ROOT));
     }
     /*public static String getRLString(String path){
         return ResourceLocation.fromNamespaceAndPath(MODID, path).toString();

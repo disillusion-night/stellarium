@@ -1,8 +1,8 @@
 package top.atdove.stellarium.i18n;
 
-public enum Language {
+public enum LanguageEnum {
     ZH_CN, EN_US;
-    private Language(){
+    private LanguageEnum(){
 
     }
     public String getStringId(){

@@ -13,5 +13,8 @@
   "block.stellarium.scorched_soil": "Scorched Soil",
   "effect.stellarium.frozen": "Frozen",
   "effect.stellarium.soul_burnt": "Soul Burnt",
-  "item.stellarium.flamegold_ingot": "Flamegold Ingot"
+  "item.stellarium.fiery_crystal": "Fiery Crystal",
+  "item.stellarium.flamegold_ingot": "Flamegold Ingot",
+  "itemGroup.stellarium.basic_items": "Stellarium Basic Items",
+  "itemGroup.stellarium.blocks": "Stellarium Blocks"
 }

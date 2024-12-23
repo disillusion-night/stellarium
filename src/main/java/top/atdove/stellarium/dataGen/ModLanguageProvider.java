@@ -6,15 +6,16 @@ import top.atdove.stellarium.block.ExtendedBlock;
 import top.atdove.stellarium.block.ModBlocks;
 import top.atdove.stellarium.effect.ExtendedEffect;
 import top.atdove.stellarium.effect.ModEffects;
-import top.atdove.stellarium.i18n.Language;
+import top.atdove.stellarium.i18n.LanguageEnum;
 import top.atdove.stellarium.item.ExtendedItem;
+import top.atdove.stellarium.item.ItemTabEnum;
 import top.atdove.stellarium.item.ModItems;
 
 import static top.atdove.stellarium.Stellarium.MODID;
 
 public class ModLanguageProvider extends LanguageProvider {
-    Language locale;
-    public ModLanguageProvider(PackOutput output, Language locale) {
+    LanguageEnum locale;
+    public ModLanguageProvider(PackOutput output, LanguageEnum locale) {
         super(output, MODID, locale.getStringId());
         this.locale = locale;
     }
@@ -45,6 +46,11 @@ public class ModLanguageProvider extends LanguageProvider {
         this.addEnglishFromID(ModEffects.FROZEN);
 
         this.addEnglishFromID(ModItems.FLAMEGOLD_INGOT);
+        this.addEnglishFromID(ModItems.FIERY_CRYSTAL);
+
+
+        this.add("itemGroup."+MODID+"."+ ItemTabEnum.BLOCKS.getStringId(), "Stellarium "+generateEngTranslationFromId(ItemTabEnum.BLOCKS.getStringId()));
+        this.add("itemGroup."+MODID+"."+ ItemTabEnum.BASIC_ITEMS.getStringId(), "Stellarium "+generateEngTranslationFromId(ItemTabEnum.BASIC_ITEMS.getStringId()));
     }
     protected void initZHCN(){
         this.add(ModBlocks.SCORCHED_DIRT.get(), "灼化砂土");
@@ -64,6 +70,12 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModEffects.FROZEN, "冻伤");
 
         this.add(ModItems.FLAMEGOLD_INGOT.getItem(), "炽焰金锭");
+        this.add(ModItems.FIERY_CRYSTAL.getItem(), "灼焱晶体");
+
+        this.addItemGroup(ItemTabEnum.BLOCKS.getStringId(), "寰旅-方块");
+        this.addItemGroup(ItemTabEnum.BASIC_ITEMS.getStringId(), "寰旅-基础物品");
+
+
     }
 
 
@@ -78,6 +90,11 @@ public class ModLanguageProvider extends LanguageProvider {
     protected void addEnglishFromID(ExtendedEffect extendedEffect){
         this.add(extendedEffect, generateEngTranslationFromId(extendedEffect.getId()));
     }
+
+    private void addItemGroup(String itemGroupId, String value){
+        this.add("itemGroup." + MODID + "." + itemGroupId, value);
+    }
+
 
     public String generateEngTranslationFromId(String id){
         String[] words = id.split("_");

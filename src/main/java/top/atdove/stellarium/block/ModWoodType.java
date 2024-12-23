@@ -1,6 +1,5 @@
 package top.atdove.stellarium.block;
 
-import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
 

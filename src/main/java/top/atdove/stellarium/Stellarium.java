@@ -3,7 +3,11 @@ package top.atdove.stellarium;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -40,12 +44,12 @@ public class Stellarium {
     public static final String MODID = "stellarium";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static void log(String string){
-        LOGGER.info(string);
-    }
     // Create the DeferredRegister for attachment types
     private static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, MOD_ID);
-
+    // No serialization
+    public static final Supplier<AttachmentType<Boolean>> CAN_SPRINT = ATTACHMENT_TYPES.register(
+            "can_sprint", () -> AttachmentType.builder(() -> true).build()
+    );
     // Serialization via INBTSerializable
     private static final Supplier<AttachmentType<ItemStackHandler>> HANDLER = ATTACHMENT_TYPES.register(
             "handler", () -> AttachmentType.serializable(() -> new ItemStackHandler(1)).build()
@@ -54,31 +58,6 @@ public class Stellarium {
     private static final Supplier<AttachmentType<Integer>> MANA = ATTACHMENT_TYPES.register(
             "mana", () -> AttachmentType.builder(() -> 0).serialize(Codec.INT).build()
     );
-    // No serialization
-    public static final Supplier<AttachmentType<Boolean>> CAN_SPRINT = ATTACHMENT_TYPES.register(
-            "can_sprint", () -> AttachmentType.builder(() -> true).build()
-    );
-
-    public static void log(int num){
-        LOGGER.info(String.valueOf(num));
-    }
-    public static void log(float num){
-        LOGGER.info(String.valueOf(num));
-    }
-    public static void log(double num){
-        LOGGER.info(String.valueOf(num));
-    }
-
-    public static ResourceLocation getRL(String path){
-        return ResourceLocation.fromNamespaceAndPath(MODID, path);
-    }
-
-    public static ResourceLocation prefix(String name) {
-        return getRL(name.toLowerCase(Locale.ROOT));
-    }
-    /*public static String getRLString(String path){
-        return ResourceLocation.fromNamespaceAndPath(MODID, path).toString();
-    }*/
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -109,6 +88,43 @@ public class Stellarium {
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    public static void log(String string) {
+        LOGGER.info(string);
+    }
+
+    public static void log(int num) {
+        LOGGER.info(String.valueOf(num));
+    }
+
+    public static void log(float num) {
+        LOGGER.info(String.valueOf(num));
+    }
+
+    public static void log(double num) {
+        LOGGER.info(String.valueOf(num));
+    }
+
+    public static ResourceLocation getRL(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
+
+    public static ResourceLocation getRL(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block);
+    }
+
+    public static ResourceLocation getRL(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item);
+    }
+
+    public static ResourceLocation getRL(MobEffect mobEffect) {
+        return BuiltInRegistries.MOB_EFFECT.getKey(mobEffect);
+    }
+
+
+    public static ResourceLocation prefix(String name) {
+        return getRL(name.toLowerCase(Locale.ROOT));
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

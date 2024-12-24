@@ -1,8 +1,9 @@
 package top.atdove.stellarium.dataGen;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import top.atdove.stellarium.block.ExtendedBlock;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import top.atdove.stellarium.block.ModBlocks;
 import top.atdove.stellarium.effect.ExtendedEffect;
 import top.atdove.stellarium.effect.ModEffects;
@@ -83,8 +84,8 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(extendedItem.getItem(), generateEngTranslationFromId(extendedItem.getId()));
     }
 
-    protected void addEnglishFromID(ExtendedBlock extendedBlock){
-        this.add(extendedBlock.get(), generateEngTranslationFromId(extendedBlock.getId()));
+    protected void addEnglishFromID(DeferredBlock<Block> deferredBlock){
+        this.add(deferredBlock.get(), generateEngTranslationFromId(deferredBlock.getId().getPath()));
     }
 
     protected void addEnglishFromID(ExtendedEffect extendedEffect){

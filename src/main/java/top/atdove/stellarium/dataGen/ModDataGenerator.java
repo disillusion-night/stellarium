@@ -31,7 +31,7 @@ public class ModDataGenerator {
         generator.addProvider(event.includeServer(), new ModBlockTagsProvider(output, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output, LanguageEnum.EN_US));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output, LanguageEnum.ZH_CN));
-        generator.addProvider(event.includeClient(), new ItemModelGenerator(output, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ItemModelGenerator(output, existingFileHelper));
     }
 }

@@ -1,2 +1,11 @@
-// 1.21.1	2024-12-23T19:30:52.8163785	Item Models: stellarium
+// 1.21.1	2024-12-24T18:10:40.0198002	Item Models: stellarium
+aa13a718e46a7a7eee8625cf53b4f0c940006545 assets/stellarium/models/item/carbonized_button.json
+9a1e8d132e2421aaf24df6caedda60a0ef91a2f7 assets/stellarium/models/item/carbonized_log.json
+c4634a2707346b7dd7e1573de6937eff31222127 assets/stellarium/models/item/carbonized_planks.json
+3b9527e364326c24fddb3ca541fc1bb8fdcd5165 assets/stellarium/models/item/carbonized_slab.json
+c47003fe28d0fe8c35562a7e19a60b6f3e606a80 assets/stellarium/models/item/carbonized_stairs.json
+050b144c76accabc7758c76ed7294067891847d8 assets/stellarium/models/item/carbonized_wood.json
 ca0213a1edfd67a52fe9faf9b5a08749e2377232 assets/stellarium/models/item/flamegold_ingot.json
+a93ff40c202ce8e10eae2daabcb0c6fdb5503e8f assets/stellarium/models/item/scorched_dirt.json
+80700690a1914b359047fec06943c1e14a7625ad assets/stellarium/models/item/scorched_sand.json
+88614c753fc15b521eaa72b8b4453f8c8e67abe8 assets/stellarium/models/item/scorched_sandstone.json

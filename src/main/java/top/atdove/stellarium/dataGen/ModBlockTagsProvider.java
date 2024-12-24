@@ -6,7 +6,6 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import top.atdove.stellarium.block.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,12 +20,13 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
+        /*
         ModBlocks.customBlocks.forEach(extendedBlock -> {
             if(!extendedBlock.getBlockTagKeys().isEmpty()){
                 extendedBlock.getBlockTagKeys().forEach(blockTagKey -> {
                     this.tag(blockTagKey).add(extendedBlock.get());
                 });
             }
-        });
+        });*/
     }
 }

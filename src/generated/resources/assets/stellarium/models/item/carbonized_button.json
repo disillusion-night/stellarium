@@ -1,3 +1,6 @@
 {
-  "parent": "stellarium:block/carbonized_button"
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "stellarium:block/carbonized_planks"
+  }
 }

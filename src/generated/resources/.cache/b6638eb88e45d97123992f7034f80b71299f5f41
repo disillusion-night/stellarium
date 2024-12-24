@@ -1,7 +1,10 @@
-// 1.21.1	2024-12-24T18:10:40.0198002	Item Models: stellarium
-aa13a718e46a7a7eee8625cf53b4f0c940006545 assets/stellarium/models/item/carbonized_button.json
+// 1.21.1	2024-12-24T22:39:07.8067408	Item Models: stellarium
+aad616edc95f7d8e2175a110417f044b49ea9751 assets/stellarium/models/item/carbonized_button.json
+b39378e8424b86147de0fd5643e762b6c337cc5d assets/stellarium/models/item/carbonized_fence.json
+32badf8dee6a9c3d4a2686b138d0a89a1d65dbae assets/stellarium/models/item/carbonized_fence_gate.json
 9a1e8d132e2421aaf24df6caedda60a0ef91a2f7 assets/stellarium/models/item/carbonized_log.json
 c4634a2707346b7dd7e1573de6937eff31222127 assets/stellarium/models/item/carbonized_planks.json
+345d52d682e35f131001b5968dd1e84cf57f77a2 assets/stellarium/models/item/carbonized_pressure_plate.json
 3b9527e364326c24fddb3ca541fc1bb8fdcd5165 assets/stellarium/models/item/carbonized_slab.json
 c47003fe28d0fe8c35562a7e19a60b6f3e606a80 assets/stellarium/models/item/carbonized_stairs.json
 050b144c76accabc7758c76ed7294067891847d8 assets/stellarium/models/item/carbonized_wood.json

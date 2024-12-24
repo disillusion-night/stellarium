@@ -15,14 +15,13 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import top.atdove.stellarium.block.ModBlocks;
-import top.atdove.stellarium.item.ExtendedItem;
 import top.atdove.stellarium.item.ModItems;
 
-import static top.atdove.stellarium.Stellarium.MODID;
-import static top.atdove.stellarium.Stellarium.prefix;
+import static top.atdove.stellarium.Stellarium.*;
 
 public class ItemModelGenerator extends ItemModelProvider {
 
@@ -38,22 +37,26 @@ public class ItemModelGenerator extends ItemModelProvider {
         toBlock(ModBlocks.CARBONIZED_WOOD.get());
         toBlock(ModBlocks.CARBONIZED_LOG.get());
         toBlock(ModBlocks.CARBONIZED_SLAB.get());
+        toBlock(ModBlocks.CARBONIZED_PRESSURE_PLATE.get());
+        toBlock(ModBlocks.CARBONIZED_FENCE_GATE.get());
         toBlock(ModBlocks.CARBONIZED_STAIRS.get());
         toBlock(ModBlocks.SCORCHED_DIRT.get());
         toBlock(ModBlocks.SCORCHED_SAND.get());
         toBlock(ModBlocks.SCORCHED_SANDSTONE.get());
 
+        simpleButton(ModBlocks.CARBONIZED_BUTTON, ModBlocks.CARBONIZED_PLANKS);
+        simpleFence(ModBlocks.CARBONIZED_FENCE, ModBlocks.CARBONIZED_PLANKS);
 
         //singleTex(ModItems.FIERY_CRYSTAL.getDeferredItem());
-        singleTex(ModItems.FLAMEGOLD_INGOT.getDeferredItem());
+        singleTex(ModItems.FLAMEGOLD_INGOT);
 
     }
 
-    private ItemModelBuilder fullbright(String name, ResourceLocation... layers) {
+    private ItemModelBuilder fullBright(String name, ResourceLocation... layers) {
         return buildItem(name, "item/generated", 15, layers);
     }
 
-    private ItemModelBuilder fullbrightTool(String name, ResourceLocation... layers) {
+    private ItemModelBuilder fullBrightTool(String name, ResourceLocation... layers) {
         return buildItem(name, "item/handheld", 15, layers);
     }
 
@@ -75,7 +78,7 @@ public class ItemModelGenerator extends ItemModelProvider {
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    private ItemModelBuilder forcefield(String name, ResourceLocation... layers) {
+    private ItemModelBuilder forceField(String name, ResourceLocation... layers) {
         ItemModelBuilder builder = withExistingParent(name, "item/generated");
         for (int i = 0; i < layers.length; i++) {
             builder = builder.texture("layer" + i, layers[i]);
@@ -84,12 +87,12 @@ public class ItemModelGenerator extends ItemModelProvider {
         return builder;
     }
 
-    private ItemModelBuilder singleTexFullbright(DeferredHolder<Item, ? extends Item> item) {
-        return fullbright(item.getId().getPath(), prefix("item/" + item.getId().getPath()));
+    private ItemModelBuilder singleTexFullBright(DeferredHolder<Item, ? extends Item> item) {
+        return fullBright(item.getId().getPath(), prefix("item/" + item.getId().getPath()));
     }
 
-    private ItemModelBuilder singleTexFullbrightTool(DeferredHolder<Item, ? extends Item> item) {
-        return fullbrightTool(item.getId().getPath(), prefix("item/" + item.getId().getPath()));
+    private ItemModelBuilder singleTexFullBrightTool(DeferredHolder<Item, ? extends Item> item) {
+        return fullBrightTool(item.getId().getPath(), prefix("item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder singleTexTool(DeferredHolder<Item, ? extends Item> item) {
@@ -129,12 +132,22 @@ public class ItemModelGenerator extends ItemModelProvider {
                 .texture("texture", "block/wood/planks_" + variant + "_0");
     }
 
-    private void woodenFence(Block fence, String variant) {
-        getBuilder(BuiltInRegistries.BLOCK.getKey(fence).getPath())
-                .parent(getExistingFile(mcLoc("block/fence_inventory")))
-                .texture("texture", "block/wood/planks_" + variant + "_0");
+    private void simpleButton(DeferredBlock<Block> button) {
+        simpleButton(button, button);
     }
-
+    private void simpleButton(DeferredBlock<Block> button, DeferredBlock<Block> texture) {
+        getBuilder(getRL(button).getPath())
+                .parent(getExistingFile(mcLoc("block/button_inventory")))
+                .texture("texture", ModBlockStateProvider.getBlockTextureRL(texture));
+    }
+    private void simpleFence(DeferredBlock<Block> fence) {
+        simpleFence(fence, fence);
+    }
+    private void simpleFence(DeferredBlock<Block> fence, DeferredBlock<Block> texture) {
+        getBuilder(getRL(fence).getPath())
+                .parent(getExistingFile(mcLoc("block/fence_inventory")))
+                .texture("texture", ModBlockStateProvider.getBlockTextureRL(texture));
+    }
     private void toBlock(Block b) {
         toBlockModel(b, BuiltInRegistries.BLOCK.getKey(b).getPath());
     }
@@ -228,7 +241,7 @@ public class ItemModelGenerator extends ItemModelProvider {
     private void moonwormQueen(DeferredHolder<Item, Item> item) {
         String name = item.getId().getPath();
 
-        ModelFile alt = fullbrightTool(name + "_alt", prefix("item/" + name + "_alt"))
+        ModelFile alt = fullBrightTool(name + "_alt", prefix("item/" + name + "_alt"))
                 .transforms()
                 .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
                 .rotation(0, -90, 55)
@@ -242,7 +255,7 @@ public class ItemModelGenerator extends ItemModelProvider {
                 .end()
                 .end();
 
-        singleTexFullbrightTool(item)
+        singleTexFullBrightTool(item)
                 .transforms()
                 .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
                 .rotation(0, -90, 55)

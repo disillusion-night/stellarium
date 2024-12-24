@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "stellarium:block/carbonized_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "stellarium:block/carbonized_log"
+    },
+    "axis=z": {
+      "model": "stellarium:block/carbonized_log_horizontal",
+      "x": 90
+    }
+  }
+}

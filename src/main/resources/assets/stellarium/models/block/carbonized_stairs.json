@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "stellarium:block/carbonized_planks",
-    "side": "stellarium:block/carbonized_planks",
-    "top": "stellarium:block/carbonized_planks"
-  }
-}

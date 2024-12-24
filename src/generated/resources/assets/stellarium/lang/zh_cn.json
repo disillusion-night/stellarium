@@ -15,6 +15,6 @@
   "effect.stellarium.soul_burnt": "焚魂熔炎",
   "item.stellarium.fiery_crystal": "灼焱晶体",
   "item.stellarium.flamegold_ingot": "炽焰金锭",
-  "itemGroup.stellarium.basic_items": "寰旅-基础物品",
-  "itemGroup.stellarium.blocks": "寰旅-方块"
+  "itemGroup.stellarium.mod_blocks": "寰旅-方块",
+  "itemGroup.stellarium.mod_items": "寰旅-基础物品"
 }

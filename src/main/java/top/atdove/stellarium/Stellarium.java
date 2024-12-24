@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.api.distmarker.Dist;
@@ -21,6 +22,8 @@ import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.slf4j.Logger;
@@ -109,7 +112,12 @@ public class Stellarium {
     public static ResourceLocation getRL(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }
-
+    public static ResourceLocation getRL(DeferredItem<Item> deferredItem) {
+        return getRL(deferredItem.get());
+    }
+    public static ResourceLocation getRL(DeferredBlock<Block> deferredBlock) {
+        return getRL(deferredBlock.get());
+    }
     public static ResourceLocation getRL(Block block) {
         return BuiltInRegistries.BLOCK.getKey(block);
     }
@@ -121,7 +129,9 @@ public class Stellarium {
     public static ResourceLocation getRL(MobEffect mobEffect) {
         return BuiltInRegistries.MOB_EFFECT.getKey(mobEffect);
     }
-
+    public static ResourceLocation getRL(CreativeModeTab creativeModeTab) {
+        return BuiltInRegistries.CREATIVE_MODE_TAB.getKey(creativeModeTab);
+    }
 
     public static ResourceLocation prefix(String name) {
         return getRL(name.toLowerCase(Locale.ROOT));

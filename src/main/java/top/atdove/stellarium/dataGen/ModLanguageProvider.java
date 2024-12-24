@@ -1,18 +1,23 @@
 package top.atdove.stellarium.dataGen;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import top.atdove.stellarium.block.ModBlocks;
 import top.atdove.stellarium.effect.ExtendedEffect;
 import top.atdove.stellarium.effect.ModEffects;
 import top.atdove.stellarium.i18n.LanguageEnum;
-import top.atdove.stellarium.item.ExtendedItem;
-import top.atdove.stellarium.item.ItemTabEnum;
+import top.atdove.stellarium.item.ModItemTabs;
 import top.atdove.stellarium.item.ModItems;
 
+import java.util.function.Supplier;
+
 import static top.atdove.stellarium.Stellarium.MODID;
+import static top.atdove.stellarium.Stellarium.getRL;
 
 public class ModLanguageProvider extends LanguageProvider {
     LanguageEnum locale;
@@ -30,58 +35,60 @@ public class ModLanguageProvider extends LanguageProvider {
     }
 
     protected void init(){
-        this.addEnglishFromID(ModBlocks.SCORCHED_DIRT);
-        this.addEnglishFromID(ModBlocks.SCORCHED_SAND);
-        this.addEnglishFromID(ModBlocks.SCORCHED_SANDSTONE);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_PLANKS);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_WOOD);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_BUTTON);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_SLAB);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_STAIRS);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_FENCE);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_LOG);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_FENCE_GATE);
-        this.addEnglishFromID(ModBlocks.CARBONIZED_PRESSURE_PLATE);
+        addEnglishFromID(ModBlocks.SCORCHED_DIRT);
+        addEnglishFromID(ModBlocks.SCORCHED_SAND);
+        addEnglishFromID(ModBlocks.SCORCHED_SANDSTONE);
+        addEnglishFromID(ModBlocks.CARBONIZED_PLANKS);
+        addEnglishFromID(ModBlocks.CARBONIZED_WOOD);
+        addEnglishFromID(ModBlocks.CARBONIZED_BUTTON);
+        addEnglishFromID(ModBlocks.CARBONIZED_SLAB);
+        addEnglishFromID(ModBlocks.CARBONIZED_STAIRS);
+        addEnglishFromID(ModBlocks.CARBONIZED_FENCE);
+        addEnglishFromID(ModBlocks.CARBONIZED_LOG);
+        addEnglishFromID(ModBlocks.CARBONIZED_FENCE_GATE);
+        addEnglishFromID(ModBlocks.CARBONIZED_PRESSURE_PLATE);
 
-        this.addEnglishFromID(ModEffects.SOUL_BURNT);
-        this.addEnglishFromID(ModEffects.FROZEN);
+        addEnglishFromID(ModEffects.SOUL_BURNT);
+        addEnglishFromID(ModEffects.FROZEN);
 
-        this.addEnglishFromID(ModItems.FLAMEGOLD_INGOT);
-        this.addEnglishFromID(ModItems.FIERY_CRYSTAL);
+        addEnglishFromID(ModItems.FLAMEGOLD_INGOT);
+        addEnglishFromID(ModItems.FIERY_CRYSTAL);
 
 
-        this.add("itemGroup."+MODID+"."+ ItemTabEnum.BLOCKS.getStringId(), "Stellarium "+generateEngTranslationFromId(ItemTabEnum.BLOCKS.getStringId()));
-        this.add("itemGroup."+MODID+"."+ ItemTabEnum.BASIC_ITEMS.getStringId(), "Stellarium "+generateEngTranslationFromId(ItemTabEnum.BASIC_ITEMS.getStringId()));
+        add(ModItemTabs.MOD_BLOCKS_TAB, "Stellarium "+generateEngTranslationFromId(getRL(ModItemTabs.MOD_BLOCKS_TAB.get()).getPath()));
+        add(ModItemTabs.MOD_ITEMS_TAB, "Stellarium "+generateEngTranslationFromId(getRL(ModItemTabs.MOD_ITEMS_TAB.get()).getPath()));
     }
     protected void initZHCN(){
-        this.add(ModBlocks.SCORCHED_DIRT.get(), "灼化砂土");
-        this.add(ModBlocks.SCORCHED_SAND.get(), "灼化沙");
-        this.add(ModBlocks.SCORCHED_SANDSTONE.get(), "灼化砂岩");
-        this.add(ModBlocks.CARBONIZED_PLANKS.get(), "碳化木板");
-        this.add(ModBlocks.CARBONIZED_WOOD.get(), "碳化木");
-        this.add(ModBlocks.CARBONIZED_BUTTON.get(), "碳化木按钮");
-        this.add(ModBlocks.CARBONIZED_SLAB.get(), "碳化木台阶");
-        this.add(ModBlocks.CARBONIZED_STAIRS.get(), "碳化木楼梯");
-        this.add(ModBlocks.CARBONIZED_FENCE.get(), "碳化木栅栏");
-        this.add(ModBlocks.CARBONIZED_LOG.get(), "碳化原木");
-        this.add(ModBlocks.CARBONIZED_FENCE_GATE.get(), "碳化木栅栏门");
-        this.add(ModBlocks.CARBONIZED_PRESSURE_PLATE.get(), "碳化木压力板");
+        add(ModBlocks.SCORCHED_DIRT, "灼化砂土");
+        add(ModBlocks.SCORCHED_SAND, "灼化沙");
+        add(ModBlocks.SCORCHED_SANDSTONE, "灼化砂岩");
+        add(ModBlocks.CARBONIZED_PLANKS, "碳化木板");
+        add(ModBlocks.CARBONIZED_WOOD, "碳化木");
+        add(ModBlocks.CARBONIZED_BUTTON, "碳化木按钮");
+        add(ModBlocks.CARBONIZED_SLAB, "碳化木台阶");
+        add(ModBlocks.CARBONIZED_STAIRS, "碳化木楼梯");
+        add(ModBlocks.CARBONIZED_FENCE, "碳化木栅栏");
+        add(ModBlocks.CARBONIZED_LOG, "碳化原木");
+        add(ModBlocks.CARBONIZED_FENCE_GATE, "碳化木栅栏门");
+        add(ModBlocks.CARBONIZED_PRESSURE_PLATE, "碳化木压力板");
 
-        this.add(ModEffects.SOUL_BURNT, "焚魂熔炎");
-        this.add(ModEffects.FROZEN, "冻伤");
+        add(ModEffects.SOUL_BURNT, "焚魂熔炎");
+        add(ModEffects.FROZEN, "冻伤");
 
-        this.add(ModItems.FLAMEGOLD_INGOT.getItem(), "炽焰金锭");
-        this.add(ModItems.FIERY_CRYSTAL.getItem(), "灼焱晶体");
+        add(ModItems.FLAMEGOLD_INGOT, "炽焰金锭");
+        add(ModItems.FIERY_CRYSTAL, "灼焱晶体");
 
-        this.addItemGroup(ItemTabEnum.BLOCKS.getStringId(), "寰旅-方块");
-        this.addItemGroup(ItemTabEnum.BASIC_ITEMS.getStringId(), "寰旅-基础物品");
-
-
+        add(ModItemTabs.MOD_BLOCKS_TAB, "寰旅-方块");
+        add(ModItemTabs.MOD_ITEMS_TAB, "寰旅-基础物品");
     }
 
 
-    protected void addEnglishFromID(ExtendedItem extendedItem){
-        this.add(extendedItem.getItem(), generateEngTranslationFromId(extendedItem.getId()));
+    protected void addEnglishFromID(Item item){
+        this.add(item, generateEngTranslationFromId(getRL(item).getPath()));
+    }
+
+    protected void addEnglishFromID(DeferredItem deferredItem){
+        this.add(deferredItem.asItem(), generateEngTranslationFromId(deferredItem.getId().getPath()));
     }
 
     protected void addEnglishFromID(DeferredBlock<Block> deferredBlock){
@@ -92,8 +99,14 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(extendedEffect, generateEngTranslationFromId(extendedEffect.getId()));
     }
 
-    private void addItemGroup(String itemGroupId, String value){
-        this.add("itemGroup." + MODID + "." + itemGroupId, value);
+    private void add(Supplier<CreativeModeTab> supplier, String value){
+        this.add(getRL(supplier.get()).toLanguageKey("itemGroup"), value);
+    }
+    private void add(DeferredBlock<Block> deferredBlock, String value){
+        this.add(deferredBlock.get(), value);
+    }
+    private void add(DeferredItem<Item> deferredItem, String value){
+        this.add(deferredItem.get(), value);
     }
 
 

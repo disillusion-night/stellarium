@@ -546,7 +546,7 @@
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "stellarium:scorched_soil"
+                                      "Name": "stellarium:scorched_dirt"
                                     }
                                   }
                                 ]

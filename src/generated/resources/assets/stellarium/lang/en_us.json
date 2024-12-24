@@ -15,6 +15,6 @@
   "effect.stellarium.soul_burnt": "Soul Burnt",
   "item.stellarium.fiery_crystal": "Fiery Crystal",
   "item.stellarium.flamegold_ingot": "Flamegold Ingot",
-  "itemGroup.stellarium.basic_items": "Stellarium Basic Items",
-  "itemGroup.stellarium.blocks": "Stellarium Blocks"
+  "itemGroup.stellarium.mod_blocks": "Stellarium Mod Blocks",
+  "itemGroup.stellarium.mod_items": "Stellarium Mod Items"
 }
